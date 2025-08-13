@@ -13,11 +13,5 @@ export const auth = fastifyPlugin(async (app: FastifyInstance) => {
         throw new UnauthorizedError('Invalid auth token')
       }
     }
-
-    const token = request.headers.authorization
-
-    if (!token || token !== 'expected-token') {
-      reply.status(401).send({ error: 'Unauthorized' })
-    }
   })
 })
