@@ -1,12 +1,8 @@
-import type { AbilityBuilder } from '@casl/ability'
-import type { AppAbility } from '.'
-import type { User } from './models/user'
-import type { Role } from './roles'
+import { AbilityBuilder } from '@casl/ability'
 
-type PermissionsByRole = (
-  user: User,
-  builder: AbilityBuilder<AppAbility>
-) => void
+import { type AppAbility, type Role, type User } from '.'
+
+type PermissionsByRole = (user: User, builder: AbilityBuilder<AppAbility>) => void
 
 export const permissions: Record<Role, PermissionsByRole> = {
   ADMIN(user, { can, cannot }) {
